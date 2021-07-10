@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Evaluacion_THA.Models.trabajador>
+@{
+    ViewBag.Title = "listar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+        <div>
+            <b></b>
+        </div>
+    </div>
+<div class="card">
+    <div class="card-header">
+        Trabajadores
+    </div>
+    <div class="card-body">
+
+        <h5 class="card-title">Options</h5>
+        <a href="@Url.Action("Agregar","Ciudad")" class="btn btn-primary btn-sm">Nueva</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model)
+                {
+                    <tr>
+                        <th scope="row">@t.id</th>
+                        <td>@t.nombre</td>
+                        <td>@t.apellido</td>
+                        <td>@t.correo</td>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+
+                            <a href="#" class="btn btn-info btn-sm">Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
