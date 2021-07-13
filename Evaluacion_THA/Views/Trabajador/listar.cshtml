@@ -25,7 +25,7 @@
 
         <br />
         <br />
-        <a href="@Url.Action("Agregar","Ciudad")" class="btn btn-primary btn-sm">Nueva</a>
+        <a href="@Url.Action("crear","Trabajador")" class="btn btn-primary btn-sm">Nueva</a>
         <br />
         <br />
         <table class="table table-bordered table-striped table-hover">
@@ -48,7 +48,7 @@
                         <td>
                             <a href="@Url.Action("eliminar","Trabajador", new { id=t.id})" class="btn btn-danger btn-sm">Eliminar</a>
 
-                            <a href="#" class="btn btn-outline-dark btn-sm">Editar</a>
+                            <a href="@Url.Action("editar","Trabajador", new { id=t.id})" class="btn btn-outline-dark btn-sm">Editar</a>
                         </td>
                     </tr>
                 }

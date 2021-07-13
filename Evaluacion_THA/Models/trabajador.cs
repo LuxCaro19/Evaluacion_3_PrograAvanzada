@@ -17,16 +17,21 @@ namespace Evaluacion_THA.Models
 
         public int id { get; set; }
 
-        [Required]
-        [StringLength(10)]
+
+        [Required(ErrorMessage = "campo es obligatorio")]
+        [StringLength(10, MinimumLength = 2, ErrorMessage = "el largo debe estar entre 2 y 10")]
         public string nombre { get; set; }
 
-        [Required]
-        [StringLength(15)]
+
+        [Required(ErrorMessage = "campo es obligatorio")]
+        [StringLength(15, MinimumLength = 2, ErrorMessage = "el largo debe estar entre 2 y 15")]
         public string apellido { get; set; }
 
-        [Required]
-        [StringLength(30)]
+
+        [Required(ErrorMessage = "campo es obligatorio")]
+        [StringLength(30, MinimumLength = 1, ErrorMessage = "el largo debe estar entre 1 y 30")]
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
+            ErrorMessage = "Dirección de Correo electrónico incorrecta.")]
         public string correo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

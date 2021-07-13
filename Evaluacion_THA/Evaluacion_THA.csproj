@@ -189,6 +189,9 @@
     <Content Include="Views\Home\Externa.cshtml" />
     <Content Include="Views\Trabajador\listar.cshtml" />
     <Content Include="Views\Trabajador\eliminar.cshtml" />
+    <Content Include="Views\Trabajador\crear.cshtml" />
+    <Content Include="Views\Trabajador\_formularios.cshtml" />
+    <Content Include="Views\Trabajador\editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

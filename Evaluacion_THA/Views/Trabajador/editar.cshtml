@@ -1,0 +1,18 @@
+﻿@model Evaluacion_THA.Models.trabajador
+@{
+    ViewBag.Title = "editar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+<br />
+<div class="card">
+    <div class="card-header">
+        Ciudades
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">opciones asociadas a un ciudad</h5>
+        @using (Html.BeginForm("editar", "Trabajador", FormMethod.Post))
+        {
+            @Html.Partial("_formularios", Model)
+        }
+    </div>
+</div>

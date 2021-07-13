@@ -1,0 +1,19 @@
+﻿@model Evaluacion_THA.Models.trabajador
+@{
+    ViewBag.Title = "crear";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+<br />
+<div class="card">
+    <div class="card-header">
+        <h5 class="text-center">Registrar trabajador</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Completar la informacion del trabajador</h5>
+        @using (Html.BeginForm("crear", "trabajador", FormMethod.Post))
+        {
+            @Html.Partial("_formularios", Model)
+        }
+    </div>
+</div>
+
