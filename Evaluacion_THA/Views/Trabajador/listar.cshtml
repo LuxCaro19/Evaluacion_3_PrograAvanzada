@@ -4,22 +4,31 @@
     Layout = "~/Views/Shared/_Interna.cshtml";
 }
 
-
+<br />
+@if (TempData["mensaje"] != null)
+{
     <div class="alert alert-success d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
         <div>
-            <b></b>
+            <b>@TempData["mensaje"]</b>
         </div>
     </div>
+}
+
+<br />
 <div class="card">
+    
     <div class="card-header">
-        Trabajadores
+        <h4 class="text-center">Trabajadores</h4>
     </div>
     <div class="card-body">
 
-        <h5 class="card-title">Options</h5>
+        <br />
+        <br />
         <a href="@Url.Action("Agregar","Ciudad")" class="btn btn-primary btn-sm">Nueva</a>
-        <table class="table">
+        <br />
+        <br />
+        <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">Codigo</th>
@@ -37,9 +46,9 @@
                         <td>@t.apellido</td>
                         <td>@t.correo</td>
                         <td>
-                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="@Url.Action("eliminar","Trabajador", new { id=t.id})" class="btn btn-danger btn-sm">Eliminar</a>
 
-                            <a href="#" class="btn btn-info btn-sm">Editar</a>
+                            <a href="#" class="btn btn-outline-dark btn-sm">Editar</a>
                         </td>
                     </tr>
                 }

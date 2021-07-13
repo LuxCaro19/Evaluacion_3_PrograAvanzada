@@ -22,6 +22,35 @@ namespace Evaluacion_THA.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult eliminar(int? id)
+        {
+
+            var trabajadores = db.trabajador.Find(id);
+
+            return View(trabajadores);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult eliminar(trabajador tr)
+        {
+
+            
+
+            var trabajador_delete = db.trabajador.Find(tr.id);
+            db.trabajador.Remove(trabajador_delete);
+            int n = db.SaveChanges();
+            if (n > 0)
+            {
+                TempData["mensaje"] = "El trabajador ha sido eliminado correctamente.";
+                return RedirectToAction("listar", "Trabajador");
+            }
+            return View();
+        }
+        
+
+
 
         protected override void Dispose(bool disposing)
         {
