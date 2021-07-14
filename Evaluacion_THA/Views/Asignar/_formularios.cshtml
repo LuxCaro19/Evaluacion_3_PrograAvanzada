@@ -1,0 +1,49 @@
+﻿@model Evaluacion_THA.Models.asignar
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div class="row">
+    <div class="col">
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Fecha de entrega</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.fechaEnt, new { @class = "form-control", placeholder = "Fecha entrega" })
+                @Html.ValidationMessageFor(model => model.fechaEnt, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Fecha Salida</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.fechaDev, new { @class = "form-control", placeholder = "Fecha Salida" })
+                @Html.ValidationMessageFor(model => model.fechaDev, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="nombre" class="col-sm-2 col-form-label">Descripcion</label>
+            <div class="col-sm-10">
+                @Html.TextBoxFor(model => model.descripcion, new { @class = "form-control", placeholder = "Descripcion" })
+                @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="Trabajador" class="col-sm-2 col-form-label">Trabajador</label>
+            <div class="col-sm-10">
+                @Html.DropDownList("trabajadorid", null, "seleccione una trabajador", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idTrabajador, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="Herramienta" class="col-sm-2 col-form-label">Herramienta</label>
+            <div class="col-sm-10">
+                @Html.DropDownList("herrmaientaid", null, "seleccione una herramienta", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idHerramienta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Guardar</button>
+            <a href="@Url.Action("listar","Asignar")" class="btn btn-outline-success">Atras</a>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,19 @@
+﻿@model Evaluacion_THA.Models.asignar
+@{
+    ViewBag.Title = "crear";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+<br />
+<div class="card">
+    <div class="card-header">
+        <h5 class="text-center">Asignacion de herramientas</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Asinga una herramienta a un trabajador</h5>
+        @using (Html.BeginForm("crear", "Asignar", FormMethod.Post))
+        {
+            @Html.Partial("_formularios", Model)
+        }
+    </div>
+</div>
+

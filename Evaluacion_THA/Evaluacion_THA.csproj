@@ -147,7 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AsignarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HerramientaController.cs" />
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +194,14 @@
     <Content Include="Views\Trabajador\crear.cshtml" />
     <Content Include="Views\Trabajador\_formularios.cshtml" />
     <Content Include="Views\Trabajador\editar.cshtml" />
+    <Content Include="Views\Herramienta\_formularios.cshtml" />
+    <Content Include="Views\Herramienta\crear.cshtml" />
+    <Content Include="Views\Herramienta\editar.cshtml" />
+    <Content Include="Views\Herramienta\eliminar.cshtml" />
+    <Content Include="Views\Herramienta\listar.cshtml" />
+    <Content Include="Views\Asignar\_formularios.cshtml" />
+    <Content Include="Views\Asignar\crear.cshtml" />
+    <Content Include="Views\Asignar\listar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

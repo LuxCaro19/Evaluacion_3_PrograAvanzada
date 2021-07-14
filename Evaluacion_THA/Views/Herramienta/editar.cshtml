@@ -1,0 +1,18 @@
+﻿@model Evaluacion_THA.Models.herramienta
+@{
+    ViewBag.Title = "editar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+<br />
+<div class="card">
+    <div class="card-header">
+        <h5 class="text-center">Modificacion de herramientas</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Modificar los datos de una herramienta existente</h5>
+        @using (Html.BeginForm("editar", "herramienta", FormMethod.Post))
+        {
+            @Html.Partial("_formularios", Model)
+        }
+    </div>
+</div>
