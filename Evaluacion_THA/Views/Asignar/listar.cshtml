@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Evaluacion_THA.Models.asignar>
+@{
+    ViewBag.Title = "listar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+<br />
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+        <div>
+            <b>@TempData["mensaje"]</b>
+        </div>
+    </div>
+}
+
+<br />
+<div class="card">
+    
+    <div class="card-header">
+        <h4 class="text-center">Herramientas asignadas</h4>
+    </div>
+    <div class="card-body">
+
+        <br />
+        <br />
+        <a href="@Url.Action("crear","Asignar")" class="btn btn-primary btn-sm center">Nueva herramienta</a>
+        <br />
+        <br />
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Entrega</th>
+                    <th scope="col">Devolucion</th>
+                    <th scope="col">Trabajador</th>
+                    <th scope="col">Herramienta</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model)
+                {
+                <tr>
+                    <th scope="row">@a.id</th>
+                    <td>@a.fechaEnt</td>
+                    <td>@a.fechaDev</td>
+                    <td>@a.trabajador.nombre @a.trabajador.apellido </td>
+                    <td>@a.herramienta.nombre</td>
+                    <td>@a.descripcion</td>
+                    <td>
+                        <a href="@Url.Action("eliminar","Asignar", new { id=a.id})" class="btn btn-danger btn-sm">Eliminar</a>
+
+                        <a href="@Url.Action("editar","Asignar", new { id=a.id})" class="btn btn-outline-dark btn-sm">Editar</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

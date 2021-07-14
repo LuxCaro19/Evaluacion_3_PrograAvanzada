@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Evaluacion_THA.Models.herramienta>
+@{
+    ViewBag.Title = "listar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+<br />
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+        <div>
+            <b>@TempData["mensaje"]</b>
+        </div>
+    </div>
+}
+
+<br />
+<div class="card">
+    
+    <div class="card-header">
+        <h4 class="text-center">Lista de Herramientas en el sistema</h4>
+    </div>
+    <div class="card-body">
+
+        <br />
+        <br />
+        <a href="@Url.Action("crear","herramienta")" class="btn btn-primary btn-sm center">Nueva herramienta</a>
+        <br />
+        <br />
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var h in Model)
+                {
+                    <tr>
+                        <th scope="row">@h.id</th>
+                        <td>@h.nombre</td>
+                        <td>@h.descripcion</td>
+                        <td>
+                            <a href="@Url.Action("eliminar","Herramienta", new { id=h.id})" class="btn btn-danger btn-sm">Eliminar</a>
+
+                            <a href="@Url.Action("editar","Herramienta", new { id=h.id})" class="btn btn-outline-dark btn-sm">Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

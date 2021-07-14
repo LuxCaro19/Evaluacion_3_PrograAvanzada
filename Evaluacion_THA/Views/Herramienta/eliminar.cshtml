@@ -1,0 +1,54 @@
+﻿@model Evaluacion_THA.Models.herramienta
+@{
+    ViewBag.Title = "eliminar";
+    Layout = "~/Views/Shared/_Interna.cshtml";
+}
+
+<br />
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+    <div>
+        ¿Desea eliminar la herramienta <b> @Model.nombre </b>?
+    </div>
+</div>
+
+<div class="card">
+
+    <table class="table table-danger table-striped table-hover">
+
+        <thead>
+            <tr>
+                <th scope="col">ID/th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+                <th scope="row">@Model.id</th>
+                <td>@Model.nombre</td>
+                <td>@Model.descripcion</td>
+            </tr>
+        </tbody>
+
+
+    </table>
+    <br />
+    <br />
+    <div class="container-fluid">
+        @using (Html.BeginForm("eliminar", "Herramienta", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.id)
+            <button class="btn btn-danger">Eliminar</button>
+            <a href="@Url.Action("listar","Herramienta")" class="btn btn-outline-success">Atras</a>
+        }
+    </div>
+
+
+</div>
+
+
+
