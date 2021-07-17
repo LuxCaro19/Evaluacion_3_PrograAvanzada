@@ -202,6 +202,8 @@
     <Content Include="Views\Asignar\_formularios.cshtml" />
     <Content Include="Views\Asignar\crear.cshtml" />
     <Content Include="Views\Asignar\listar.cshtml" />
+    <Content Include="Views\Asignar\eliminar.cshtml" />
+    <Content Include="Views\Asignar\editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

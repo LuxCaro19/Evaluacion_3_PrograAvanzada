@@ -28,14 +28,14 @@
         <div class="mb-3 row">
             <label for="Trabajador" class="col-sm-2 col-form-label">Trabajador</label>
             <div class="col-sm-10">
-                @Html.DropDownList("trabajadorid", null, "seleccione una trabajador", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("trabajadoresID", null, "seleccione un trabajador", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idTrabajador, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="mb-3 row">
             <label for="Herramienta" class="col-sm-2 col-form-label">Herramienta</label>
             <div class="col-sm-10">
-                @Html.DropDownList("herrmaientaid", null, "seleccione una herramienta", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("herramientasID", null, "seleccione una herramienta", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idHerramienta, "", new { @class = "text-danger" })
             </div>
         </div>
