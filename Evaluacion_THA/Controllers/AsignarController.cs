@@ -29,7 +29,7 @@ namespace Evaluacion_THA.Controllers
 
             var trabajadores = from t in db.trabajador
                                select t;
-            ViewBag.trabajadoresID = new SelectList(trabajadores.ToList(), "id", "nombre");
+            ViewBag.trabajadorID = new SelectList(trabajadores.ToList(), "id", "nombre" );
 
             var herramientas = from h in db.herramienta
                                select h;
@@ -43,22 +43,24 @@ namespace Evaluacion_THA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult crear(asignar a)
         {
+            
+
+         
+            var herramientas = from h in db.herramienta select h;
+            ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id", "nombre", a.idHerramienta);
+
+            var trabajadores = from t in db.trabajador select t;
+            ViewBag.trabajadorID = new SelectList(trabajadores.ToList(), "id", "nombre", a.idTrabajador);
+
+
             if (ModelState.IsValid)
             {
-               
+
                 db.asignar.Add(a);
                 db.SaveChanges();
                 TempData["mensaje"] = "Se ha asignado la herramienta";
                 return RedirectToAction("listar", "Asignar");
             }
-
-            var trabajadores = from t in db.trabajador select t;
-            ViewBag.trabajadoresID= new SelectList(trabajadores.ToList(), "id", "nombre", a.idTrabajador);
-
-            var herramientas = from h in db.herramienta select h;
-            ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id", "nombre", a.idHerramienta);
-
-
             return View(a);
         }
 
@@ -69,10 +71,10 @@ namespace Evaluacion_THA.Controllers
             var a = db.asignar.Find(id);
             if (a != null) { 
                 var trabajadores = from t in db.trabajador select t;
-                ViewBag.trabajadoresID = new SelectList(trabajadores.ToList(), "id", "nombre");
-
                 var herramientas = from h in db.herramienta select h;
-                ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id", "nombre");
+
+                ViewBag.idTrabajador = new SelectList(trabajadores.ToList(), "id", "nombre", a.idTrabajador);            
+                ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id", "nombre", a.idHerramienta);
 
 
             return View(a);
@@ -85,6 +87,12 @@ namespace Evaluacion_THA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult editar(asignar a)
         {
+            var trabajadores = from t in db.trabajador select t;
+            var herramientas = from h in db.herramienta select h;
+
+            ViewBag.idTrabajador = new SelectList(trabajadores.ToList(), "id", "nombre", a.idTrabajador);     
+            ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id" , "nombre", a.idHerramienta);
+
             if (ModelState.IsValid)
             {
                 db.Entry(a).State = EntityState.Modified;
@@ -92,12 +100,6 @@ namespace Evaluacion_THA.Controllers
                 TempData["mensaje"] = "Cambio de asignacion realizada.";
                 return RedirectToAction("listar", "asignar");
             }
-
-            var trabajadores = from t in db.trabajador select t;
-            ViewBag.trabajadoresID = new SelectList(trabajadores.ToList(), "id", "nombre", a.idTrabajador);
-
-            var herramientas = from h in db.herramienta select h;
-            ViewBag.herramientasID = new SelectList(herramientas.ToList(), "id", "nombre", a.idHerramienta);
             return View(a);
         }
 
