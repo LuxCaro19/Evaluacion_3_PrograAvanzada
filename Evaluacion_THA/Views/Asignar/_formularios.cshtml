@@ -14,7 +14,7 @@
         <div class="mb-3 row">
             <label for="nombre" class="col-sm-2 col-form-label">Fecha Salida</label>
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.fechaDev, new { @class = "form-control", placeholder = "Fecha Salida" })
+                @Html.TextBoxFor(model => model.fechaDev, new { @class = "datepicker form-control", placeholder = "Fecha Salida" })
                 @Html.ValidationMessageFor(model => model.fechaDev, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,14 +28,14 @@
         <div class="mb-3 row">
             <label for="Trabajador" class="col-sm-2 col-form-label">Trabajador</label>
             <div class="col-sm-10">
-                @Html.DropDownList("trabajadoresID", null, "seleccione un trabajador", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.idTrabajador, (IEnumerable<SelectListItem>)ViewBag.trabajadorID, "seleccione un trabajador", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idTrabajador, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="mb-3 row">
             <label for="Herramienta" class="col-sm-2 col-form-label">Herramienta</label>
             <div class="col-sm-10">
-                @Html.DropDownList("herramientasID", null, "seleccione una herramienta", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.idHerramienta, (IEnumerable<SelectListItem>)ViewBag.herramientasID, "seleccione una herramienta", htmlAttributes: new { @class = "form-control" })  
                 @Html.ValidationMessageFor(model => model.idHerramienta, "", new { @class = "text-danger" })
             </div>
         </div>

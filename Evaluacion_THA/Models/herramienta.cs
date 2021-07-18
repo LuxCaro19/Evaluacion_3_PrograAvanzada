@@ -18,11 +18,15 @@ namespace Evaluacion_THA.Models
         public int id { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(10, MinimumLength = 2, ErrorMessage = "el largo debe estar entre 2 y 10")]
+        [RegularExpression(@"^[A-Za-z ]+$",
+            ErrorMessage = "El nombre solo debe contener letras")]
         public string nombre { get; set; }
 
         [Required]
-        [StringLength(90)]
+        [StringLength(90, MinimumLength = 2, ErrorMessage = "el largo debe estar entre 2 y 90")]
+        [RegularExpression(@"^[0-9A-Za-z ]+$",
+            ErrorMessage = "El nombre no puede contener simbolos")]
         public string descripcion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
